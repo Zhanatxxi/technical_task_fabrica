@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "telegram-technical-task"
+version = "0.1.0"
+description = ""
+authors = ["Zhanat <janat.200066@gmail.com>"]
+readme = "README.md"
+packages = [{include = "telegram_technical_task"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.5"
+djangorestframework = "^3.14.0"
+drf-yasg = "^1.21.7"
+python-telegram-bot = {extras = ["all"], version = "^20.5"}
+requests = "^2.31.0"
+django-environ = "^0.11.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
