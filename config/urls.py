@@ -6,6 +6,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from config import settings
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -21,7 +22,7 @@ schema_view = get_schema_view(
 )
 
 sentry_sdk.init(
-    dsn="https://36ad42c140b97b4988665865362f23d2@o1321541.ingest.sentry.io/4505830483951616",
+    dsn=settings.SENTRY_DSN,
     integrations=[DjangoIntegration()],
     # If you wish to associate users to errors (assuming you are using
     # django.contrib.auth) you may enable sending PII data.
