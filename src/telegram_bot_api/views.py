@@ -21,7 +21,7 @@ class SendMessageApi(APIView):
             message = serializer.save()
             telegram_token = message.auth_id.profile.telegram_token
             telegram_client = get_telegram_client_by_token(telegram_token)
-            if telegram_client.telegram_id:
+            if telegram_client:
                 text = f"""{telegram_client.first_name or telegram_client.username}, я получил от тебя сообщение:\n{message.message} """
                 send_message(message=text, telegram_id=telegram_client.telegram_id)
                 return Response('message saved and send telegram', status=status.HTTP_201_CREATED)
